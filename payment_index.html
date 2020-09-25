@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="payment-form.css">
+    <link rel="stylesheet" href="stylesheets/payment-form.css">
     <title>My test page</title>
 </head>
 
 <body>
-    <form>
+    <form data-payment-form="form" id="paymentForm">
         <h1>Payment Form</h1>
         <p>Required fields are followd by <strong><abbr title="required">*</abbr></strong>.</p>
         <section>
@@ -18,19 +18,19 @@
                 <ul>
                     <li>
                         <label for="title_1">
-                            <input type="radio" id="title_1" name="title" value="K">
+                            <input type="radio" id="title_1" name="title" value="King">
                             King
                         </label>
                     </li>
                     <li>
                         <label for="title_2">
-                            <input type="radio" id="title_2" name="title" value="Q">
+                            <input type="radio" id="title_2" name="title" value="Queen">
                             Queen
                         </label>
                     </li>
                     <li>
                         <label for="title_3">
-                            <input type="radio" id="title_3" name="title" value="J">
+                            <input type="radio" id="title_3" name="title" value="Joker">
                             Joker
                         </label>
                     </li>
@@ -85,9 +85,24 @@
                 </label>
                 <input type="date" id="date" name="expiration">
             </p>
-            <p> <button type="submit">Validate the payment</button> </p>
+            <p>
+                <button href="#ex1" rel="modal:open" type="submit">Validate the payment</button>
+            </p>
         </section>
     </form>
+
+    <!-- pop-up jQuery modal -->
+    <div id="ex1" class="modal">
+        <!-- text will be overwritten by payment dialog -->
+        <p>Thanks for clicking. That felt good.</p>
+        <a href="#" rel="modal:close">Close</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="scripts/paymentformhandler.js" charset="utf-8"></script>
+    <script src="scripts/paymentmain.js" charset="utf-8"></script>
 </body>
 
 </html>

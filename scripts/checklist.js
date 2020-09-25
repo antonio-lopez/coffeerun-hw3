@@ -1,4 +1,4 @@
-(function(window){
+(function (window) {
     'use strict';
 
     var App = window.App || {};
@@ -15,8 +15,8 @@
                 throw new Error('Could not find element with selector: ' + selector);
             }
         }
-        addClickHandler(fn){
-            this.$element.on('click', 'input', function(event){
+        addClickHandler(fn) {
+            this.$element.on('click', 'input', function (event) {
                 var email = event.target.value;
                 this.removeRow(email);
                 fn(email);
@@ -32,11 +32,11 @@
             //add the new row instance's $element property to the checklist
             this.$element.append(rowElement.$element);
         }
-        removeRow = function(email){
+        removeRow = function (email) {
             this.$element
-            .find('[value="' + email + '"]')
-            .closest('[data-coffee-order="checkbox"]')
-            .remove();
+                .find('[value="' + email + '"]')
+                .closest('[data-coffee-order="checkbox"]')
+                .remove();
         };
     }
 

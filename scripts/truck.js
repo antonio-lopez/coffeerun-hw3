@@ -1,4 +1,4 @@
-(function(window){
+(function (window) {
     'use strict';
     var App = window.App || {};
 
@@ -11,15 +11,15 @@
             console.log('Adding order for' + order.emailAddress);
             this.db.add(order.emailAddress, order);
         }
-        deliverOrder(customerId){
+        deliverOrder(customerId) {
             console.log('Delivering order for ' + customerId);
             this.db.remove(customerId);
         }
-        printOrders(){
+        printOrders() {
             var customerIdArray = Object.keys(this.db.getAll());
 
             console.log('Truck #' + this.truckId + ' has pending order:');
-            customerIdArray.forEach(function (id){
+            customerIdArray.forEach(function (id) {
                 console.log(this.db.get(id));
             }.bind(this));
         }
